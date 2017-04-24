@@ -1,0 +1,6 @@
+<md-button ui-sref="{{section.name}}" ui-sref-active="active" ng-click="focusSection()">
+  <div flex layout="row" >
+    <ng-md-icon icon="{{section.settings.icon}}" ng-if="section.settings.icon"></ng-md-icon>
+    &nbsp;&nbsp;<span flex>{{section | humanizeDoc}}</span>
+  </div>
+</md-button>

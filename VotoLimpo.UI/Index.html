@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/">
+
+    <title>#VOTELIMPO - Construindo um Brasil melhor!</title>
+
+    <!-- Bootstrap styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Componentes (menu, nav, breadcrumb -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <!-- Styles do sistema -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+
+    <!-- build:css styles/lib.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/app.css -->
+    <!-- endbuild -->
+</head>
+
+<body layout="column">
+    <div ng-controller="ShellController as vm" layout="column" flex ng-cloak>
+
+        <div class="main" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+            <!-- Navigation -->
+            <nav class="navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="menu navbar-header">
+                        <ul class="menu-list">
+                            <li>
+                                <a href="#"><img class="brand" src="img/vote-limpo.png" alt="Menu #VOTELIMPO" /></a>
+                                <ul class="sub-menu">
+                                    <li><a class="page-scroll" href="#page-top">Home</a></li>
+                                    <li><a class="page-scroll" href="#projeto">O Projeto</a></li>
+                                    <li><a class="page-scroll" href="#candidatos">Candidatos de A-Z</a></li>
+                                    <li><a class="page-scroll" href="#doacao">Faça uma doação</a></li>
+                                    <li><a class="page-scroll" href="#contato">Contato</a></li>
+                                </ul>
+                            </li>
+                            <li class="linha-fina">Consulte e divulgue os candidatos que estão envolvidos com corrupção</li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            <!-- Intro Section -->
+            <section id="intro" class="intro-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-6">
+                            <form class="busca" action="" method="get">
+                                <input type="text" name="buscar" onfocus="this.value='';" id="buscar" value="Digite o nome do seu candidato...">
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox"> Presidente
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" name="governador">
+                                        Governador
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" name="presidente">
+                                        Senador
+                                    </label>
+                                </div>
+                                <div class="checkbox-inline">
+                                    <label>
+                                        <input type="checkbox" name="presidente">
+                                        Deputado Federal
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Como funciona Section -->
+            <section id="projeto" class="projeto-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-6">
+                            <h1>O projeto</h1>
+                            <p>
+                                O principal objetivo é passar o Brasil a limpo, não possuimos nenhuma partido político, respeitamos
+                                a democracia e a liberdade de expressão.
+                            </p>
+                            <p>Somos apenas brasileiros, apaixonados pelo nosso país.</p>
+                            <p>#VOTELIMPO</p>
+                            <h2>Como usar o site</h2>
+                            <p>
+                                A principal ideia é propagar essa lista, tornando os eleitores mais informados sobre os candidatos
+                                que estão roubando e afundando nosso país.
+                            </p>
+                            <p>Sua ajuda é muito importante, nós ajude a divulgar essas informações.</p>
+                            <h2>As informações são confiáveis</h2>
+                            <p>A lista é atualizada diáriamente de acordo com informações adquiridas do Supremo Tribunal Federal.</p>
+                            <a href="http://www.stf.jus.br/" target="_blank">www.stf.jus.br/</a>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Suspeitos Section -->
+            <section id="candidatos" class="candidatos-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-6">
+                            <h1>Lista de candidatos suspeitos de participar da lavajato</h1>
+                            <p>*Esta lista é baseada de acordo com a publicação de informações do STF.</p>
+                            <ul class="passador">
+                                <li><a class="active" href="">a</a></li>
+                                <li><a href="">b</a></li>
+                                <li><a href="">c</a></li>
+                                <li><a href="">d</a></li>
+                                <li><a href="">e</a></li>
+                            </ul>
+                            <br class="clear">
+                            <ul class="lista-candidatos">
+                                <li><a href="candidato.html">Nome do candidato aqui - PT</a></li>
+                                <li><a href="">Nome do candidato aqui - PSDB</a></li>
+                                <li><a href="">Nome do candidato aqui - PSD</a></li>
+                                <li><a href="">Nome do candidato aqui - PV</a></li>
+                                <li><a href="">Nome do candidato aqui - PSDB</a></li>
+                                <li><a href="">Nome do candidato aqui - PV</a></li>
+                                <li><a href="">Nome do candidato aqui - PV</a></li>
+                            </ul>
+                            <ul class="lista-candidatos">
+                                <li><a href="">Nome do candidato aqui - PT</a></li>
+                                <li><a href="">Nome do candidato aqui - PSDB</a></li>
+                                <li><a href="">Nome do candidato aqui - PSD</a></li>
+                                <li><a href="">Nome do candidato aqui - PV</a></li>
+                                <li><a href="">Nome do candidato aqui - PSDB</a></li>
+                                <li><a href="">Nome do candidato aqui - PV</a></li>
+                                <li><a href="">Nome do candidato aqui - PV</a></li>
+                            </ul>
+                            <p class="texto-destaque">Descupe-nos, mas precisamos de publicdade para sustentar o projeto.</p>
+                            <div class="banner-google">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="doacao" class="doacao-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <h1>Faça uma doação</h1>
+                        <p>
+                            Ajude-nos a manter o projeto no vivo, sua doação é fundamental para manter o projeto. Precisamos
+                            pagar custos de hospedagem, produção do projeto, colaboradores envolvidos entre outros.
+                        </p>
+                        <h2>Como ajudar?</h2>
+                        <p>
+                            Possuímos uma conta no Paypal, uma ferramenta de pagamentos online super segura. Você pode escolher
+                            a quantia que desejar e ajudar a manter esse sonho.
+                        </p>
+                        <a class="btn btn-success btn-lg btn-paypal" href="#" target="_blank">Contribuir com o projeto</a>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contato Section -->
+        <section id="contato" class="contato-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6">
+                        <h1>Contato</h1>
+                        <p>Somos brasileiros apaixonados por nosso país!</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputNome">Nome</label>
+                                <input type="nome" class="form-control" id="exampleInputNome" placeholder="Nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email </label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label>Mensagem </label>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger btn-lg">Enviar</button>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Scrolling Nav JavaScript -->
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/scrolling-nav.js"></script>
+
+
+    <!--<section id="content" class="content" layout="row" flex>
+        <div  ui-view layout flex role="main" class="shuffle-animation">
+        </div>
+    </section>-->
+    </div>
+    <!--<div id="splash-page" ng-show="vm.showSplash" class="dissolve-animation">
+        <div class="centered" layout="column">
+            <img class="pqs-logo" src="img/Brazilian.svg" />
+            <div class="three-bounce-spinner">
+                <div class="bounce1" style="background-color:#FFFFFF"></div>
+                <div class="bounce2" style="background-color:#FFFFFF"></div>
+                <div class="bounce3" style="background-color:#FFFFFF"></div>
+            </div>
+        </div>
+    </div>-->
+    <!-- build:js js/lib.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js js/app.js -->
+    <!-- inject:js -->
+    <script src="/app/app.module.js"></script>
+    <script src="/app/admin/admin.module.js"></script>
+    <script src="/app/blocks/exception/exception.module.js"></script>
+    <script src="/app/blocks/logger/logger.module.js"></script>
+    <script src="/app/blocks/router/router.module.js"></script>
+    <script src="/app/core/core.module.js"></script>
+    <script src="/app/dashboard/dashboard.module.js"></script>
+    <script src="/app/layout/layout.module.js"></script>
+    <script src="/app/widgets/widgets.module.js"></script>
+    <script src="/app/admin/admin.controller.js"></script>
+    <script src="/app/admin/admin.route.js"></script>
+    <script src="/app/blocks/exception/exception-handler.provider.js"></script>
+    <script src="/app/blocks/exception/exception.js"></script>
+    <script src="/app/blocks/logger/logger.js"></script>
+    <script src="/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/app/core/config.js"></script>
+    <script src="/app/core/constants.js"></script>
+    <script src="/app/core/core.route.js"></script>
+    <script src="/app/core/dataservice.js"></script>
+    <script src="/app/core/directives/pqsAvatar/pqs.avatar.directive.js"></script>
+    <script src="/app/core/watchTransform.js"></script>
+    <script src="/app/dashboard/dashboard.controller.js"></script>
+    <script src="/app/dashboard/dashboard.route.js"></script>
+    <script src="/app/layout/ht-sidebar.directive.js"></script>
+    <script src="/app/layout/ht-top-nav.directive.js"></script>
+    <script src="/app/layout/menu-link.directive.js"></script>
+    <script src="/app/layout/menu-toggle.directive.js"></script>
+    <script src="/app/layout/menu.controller.js"></script>
+    <script src="/app/layout/shell.controller.js"></script>
+    <script src="/app/layout/sidebar.controller.js"></script>
+    <script src="/app/layout/user-avatar.directive.js"></script>
+    <script src="/app/widgets/ht-img-person.directive.js"></script>
+    <script src="/app/widgets/ht-widget-header.directive.js"></script>
+    <!-- endinject -->
+    <!-- inject:templates:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+
+</html>

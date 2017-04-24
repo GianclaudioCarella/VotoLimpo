@@ -1,0 +1,166 @@
+<div layout="column" flex>
+    <md-toolbar md-scroll-shrink ng-if="true" watch-transform>
+        <div class="md-toolbar-tools">
+            <h3>
+                <span>Service Mail</span>
+            </h3>
+        </div>
+    </md-toolbar>
+    <md-content layout-padding>
+
+        <div layout="row">
+            <div class="md-whiteframe-4dp" style="background-color: cornflowerblue; padding:10px" flex-xs flex-gt-xs="40" layout="column" flex>
+                <div layout="row" flex>
+                    <span class="md-headline" style="color:whitesmoke">{{vm.message}}</span>
+                    <div flex></div>
+                    <md-button class="md-icon-button" ng-click="vm.play()" aria-label="Menu" style="margin-right:20px">
+                        <ng-md-icon icon="play_arrow" style="color:whitesmoke" size="39"></ng-md-icon>
+                        <md-tooltip>
+                            Play
+                        </md-tooltip>
+                    </md-button>
+                </div>
+            </div>
+
+
+            <div class="md-whiteframe-4dp"
+                 style="background-color: cornflowerblue; margin-left:10px; padding:10px" flex-xs flex-gt-xs="10" flex="10"
+                 layout="column"
+                 layout-align="center center"
+                 ng-click="vm.showGridPendiente()">
+                <span style="color:whitesmoke; font-size:40px;">{{vm.mailsPendientes}}</span>
+                <span style="color:whitesmoke; font-size:15px">Pendientes</span>
+            </div>
+
+            <div class="md-whiteframe-4dp"
+                 style="background-color: cornflowerblue; margin-left:10px; padding:10px" flex-xs flex-gt-xs="10" flex="10"
+                 layout="column"
+                 layout-align="center center"
+                 ng-click="vm.showGridErrors()">
+                <span style="color:whitesmoke; font-size:40px;">{{vm.mailsError}}</span>
+                <span style="color:whitesmoke; font-size:15px">Error</span>
+            </div>
+
+            <div class="md-whiteframe-4dp"
+                 style="background-color: cornflowerblue; margin-left:10px; padding:10px" flex-xs flex-gt-xs="10" flex="10"
+                 layout="column"
+                 layout-align="center center"
+                 ng-click="vm.showGridEnviados()">
+                <span style="color:whitesmoke; font-size:40px;">{{vm.mailsEnviados}}</span>
+                <span style="color:whitesmoke; font-size:15px">Enviados</span>
+            </div>
+        </div>
+
+        <div ng-show="vm.showPendiente">
+            <md-toolbar class="pqs-appbar">
+                <div class="md-toolbar-tools">
+                    <span>MAILS PENDIENTES</span>
+                </div>
+            </md-toolbar>
+
+            <md-list-item ng-repeat="m in vm.pendientesGrid.data"
+                          class="md-3-line">
+                <!--<pqs-avatar pqs-avatar-data="{name: m.ToAddresses }" class="large"></pqs-avatar>-->
+                <img ng-src="/images/icon-email.png" class="md-avatar" style="margin-top:22px" />
+                <div class="md-list-item-text" layout="column">
+                    <h3><b>To: </b>{{ m.ToAddresses }}</h3>
+                    <h4><b>Subject: </b>{{ m.Subject }}</h4>
+                    <p><b>From: </b>{{ m.FromAddres }}</p>
+                </div>
+
+                <md-menu ng-if="!vm.isServiceRunning" class="md-secondary">
+                    <md-button class="md-icon-button">
+                        <ng-md-icon icon="menu"></ng-md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button>
+                                <ng-md-icon icon="delete">
+                                </ng-md-icon>
+                                Borrar
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </md-list-item>
+        </div>
+
+
+        <div ng-show="vm.showErrors">
+            <md-toolbar class="pqs-appbar">
+                <div class="md-toolbar-tools">
+                    <span>MAILS CON ERROR</span>
+                </div>
+            </md-toolbar>
+
+            <md-list-item ng-repeat="m in vm.errorGrid.data"
+                          class="md-3-line">
+                <!--<pqs-avatar pqs-avatar-data="{name: m.ToAddresses }" class="large"></pqs-avatar>-->
+                <img ng-src="/images/icon-email.png" class="md-avatar" style="margin-top:22px" />
+                <div class="md-list-item-text" layout="column">
+                    <h3><b>To: </b>{{ m.ToAddresses }}</h3>
+                    <h4><b>Subject: </b>{{ m.Subject }}</h4>
+                    <p><b>From: </b>{{ m.FromAddres }}</p>
+                </div>
+
+                <md-menu ng-if="!vm.isServiceRunning" class="md-secondary">
+                    <md-button class="md-icon-button">
+                        <ng-md-icon icon="menu"></ng-md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ng-click="vm.marcarReenvio(m)">
+                                <ng-md-icon icon="reply">
+                                </ng-md-icon>
+                                Marcar para reenvio
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="vm.showAlertError($event, m)">
+                                <ng-md-icon icon="error_outline">
+                                </ng-md-icon>
+                                Ver Error
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </md-list-item>
+        </div>
+
+        <div ng-show="vm.showEnviados">
+            <md-toolbar class="pqs-appbar">
+                <div class="md-toolbar-tools">
+                    <span>MAILS ENVIADOS EN {{vm.dd}}/{{vm.mm}}</span>
+                </div>
+            </md-toolbar>
+
+            <md-list-item ng-repeat="m in vm.enviadosGrid.data"
+                          class="md-3-line">
+                <!--<pqs-avatar pqs-avatar-data="{name: m.ToAddresses }" class="large"></pqs-avatar>-->
+                <img ng-src="/images/icon-email.png" class="md-avatar" style="margin-top:22px" />
+                <div class="md-list-item-text" layout="column">
+                    <h3><b>To: </b>{{ m.ToAddresses }}</h3>
+                    <h4><b>Subject: </b>{{ m.Subject }}</h4>
+                    <p><b>From: </b>{{ m.FromAddres }}</p>
+                </div>
+
+                <!--<md-menu ng-if="!vm.isServiceRunning" class="md-secondary">
+                    <md-button class="md-icon-button">
+                        <ng-md-icon icon="menu"></ng-md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button>
+                                <ng-md-icon icon="delete">
+                                </ng-md-icon>
+                                Borrar
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>-->
+            </md-list-item>
+        </div>
+
+    </md-content>
+</div>
+<!--/column-->

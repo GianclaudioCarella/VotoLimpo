@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotoLimpo.UI", "VotoLimpo.UI\VotoLimpo.UI.csproj", "{C026A0A6-A5AC-4773-84BB-4D5BED504566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VotoLimpo.Business", "VotoLimpo.Business\VotoLimpo.Business.csproj", "{4D2B31FD-2135-464A-BC82-44A320CEA6C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C026A0A6-A5AC-4773-84BB-4D5BED504566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C026A0A6-A5AC-4773-84BB-4D5BED504566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C026A0A6-A5AC-4773-84BB-4D5BED504566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C026A0A6-A5AC-4773-84BB-4D5BED504566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D2B31FD-2135-464A-BC82-44A320CEA6C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D2B31FD-2135-464A-BC82-44A320CEA6C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D2B31FD-2135-464A-BC82-44A320CEA6C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D2B31FD-2135-464A-BC82-44A320CEA6C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
